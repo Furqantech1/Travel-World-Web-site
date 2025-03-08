@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel World</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">Travel World</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#destinations">Destinations</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#" id="loginLink">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Login Modal -->
+    <div class="login-modal" id="loginModal">
+        <div class="login-content">
+            <span class="close-btn">&times;</span>
+            <div class="login-header">
+                <h2>Welcome Back!</h2>
+                <p>Please login to continue</p>
+            </div>
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    <small class="error-message" id="emailError"></small>
+                </div>
+                <div class="form-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    <small class="error-message" id="passwordError"></small>
+                </div>
+                <button type="submit" class="login-btn">Sign In</button>
+                <div class="login-footer">
+                    <p>Don't have an account? <a href="#">Sign Up</a></p>
+                    <a href="#">Forgot Password?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <section id="home" class="hero" style="background-image: url(/images/travel-the-world.png);">
+        <div class="hero-content">
+            <h1>Explore the World</h1>
+            <p>Discover amazing destinations and create unforgettable memories.</p>
+            <a href="#destinations" class="cta">Explore Destinations</a>
+        </div>
+    </section>
+
+    <section id="destinations" class="destinations"
+        style="background: linear-gradient(253deg, rgb(249, 202, 120) 18.26%, rgb(212, 206, 169) 43.46%, rgb(172, 192, 191) 79.63%);">
+        <h2>Popular Destinations</h2>
+        <div class="destination-grid">
+            <div class="destination-card">
+                <a href="/paris.html"><img src="/images/paris.jpg" alt="Paris"></a>
+                <h3>Paris</h3>
+                <p>Experience the city of love and lights.</p>
+            </div>
+            <div class="destination-card">
+                <a href="/tokyo.html"><img src="/images/tokoyo.jpg" alt="Tokyo"></a>
+                <h3>Tokyo</h3>
+                <p>Discover the vibrant culture of Japan.</p>
+            </div>
+            <div class="destination-card">
+                <a href="/newyork.html"><img src="/images/new york.jpg" alt="New York"></a>
+                <h3>New York</h3>
+                <p>Explore the city that never sleeps.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about"
+        style="background: linear-gradient(287deg, rgb(251, 165, 116) 0.00%, rgb(216, 245, 251) 68.46%);">
+        <h2>About Us</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>
+                    At <strong>Travel World</strong>, we believe that every journey should be unforgettable.
+                    Our mission is to provide you with exceptional travel experiences tailored to your dreams.
+                    Whether it's a relaxing beach vacation, a thrilling adventure, or a cultural exploration, we’ve got
+                    you covered.
+                </p>
+                <h3>Why Choose Us?</h3>
+                <ul>
+                    <li><strong>Expert Guidance:</strong> Our team of travel experts ensures seamless planning.</li>
+                    <li><strong>Personalized Service:</strong> Tailored itineraries to match your unique style.</li>
+                    <li><strong>Sustainable Travel:</strong> Committed to eco-friendly and responsible tourism.</li>
+                </ul>
+            </div>
+            <div class="about-image">
+                <img src="/images/team.jpg" alt="Our Team">
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact" style="background-image: linear-gradient(to right, #9796f0, #fbc7d4);">
+        <h2>Contact Us</h2>
+        <form action="https://formspree.io/f/xpwpaaqa" method="POST" id="contact-form">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        <p id="success-message" style="display: none; color: green;">Message sent successfully!</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Travel World. All rights reserved.</p>
+        <p>Made By FURQAN NAIKWADI</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
