@@ -18,7 +18,28 @@
                 <li><a href="#destinations">Destinations</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="#" id="loginLink">Login</a></li>
+                <li><a href="#" id="bookPassLink">Book Pass</a></li>
+                <li><a href="#" id="loginLink" class="auth-link">Login</a></li>
+                <li class="user-profile" id="userProfile" style="display: none;">
+                    <a href="#" id="profileLink">
+                        <div class="profile-icon">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <span class="user-name" id="userDisplayName">User</span>
+                    </a>
+                    <div class="profile-dropdown">
+                        <div class="dropdown-header">
+                            <h3 id="dropdownUserName">User Name</h3>
+                            <p id="dropdownUserEmail">user@example.com</p>
+                        </div>
+                        <ul>
+                            <li><a href="#"><i class="fas fa-user"></i> My Profile</a></li>
+                            <li><a href="#" id="myBookingsLink"><i class="fas fa-ticket-alt"></i> My Bookings</a></li>
+                            <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+                            <li><a href="#" id="logoutLink"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                        </ul>
+                    </div>
+                </li>
             </ul>
         </nav>
     </header>
@@ -44,10 +65,154 @@
                 </div>
                 <button type="submit" class="login-btn">Sign In</button>
                 <div class="login-footer">
-                    <p>Don't have an account? <a href="#">Sign Up</a></p>
-                    <a href="#">Forgot Password?</a>
+                    <p>Don't have an account? <a href="#" id="showSignUp">Sign Up</a></p>
+                    <a href="#" id="showForgotPassword">Forgot Password?</a>
                 </div>
             </form>
+        </div>
+    </div>
+
+    <!-- Sign Up Modal -->
+    <div class="login-modal" id="signUpModal">
+        <div class="login-content">
+            <span class="close-btn">&times;</span>
+            <div class="login-header">
+                <h2>Create Account</h2>
+                <p>Join Travel World today</p>
+            </div>
+            <form id="signUpForm" class="login-form">
+                <div class="form-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="signUpName" name="name" placeholder="Full Name" required>
+                    <small class="error-message" id="signUpNameError"></small>
+                </div>
+                <div class="form-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="signUpEmail" name="email" placeholder="Enter your email" required>
+                    <small class="error-message" id="signUpEmailError"></small>
+                </div>
+                <div class="form-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="signUpPassword" name="password" placeholder="Create password" required>
+                    <small class="error-message" id="signUpPasswordError"></small>
+                </div>
+                <div class="form-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm password" required>
+                    <small class="error-message" id="confirmPasswordError"></small>
+                </div>
+                <button type="submit" class="login-btn">Sign Up</button>
+                <div class="login-footer">
+                    <p>Already have an account? <a href="#" id="showLogin">Sign In</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div class="login-modal" id="forgotPasswordModal">
+        <div class="login-content">
+            <span class="close-btn">&times;</span>
+            <div class="login-header">
+                <h2>Reset Password</h2>
+                <p>Enter your email to reset your password</p>
+            </div>
+            <form id="forgotPasswordForm" class="login-form">
+                <div class="form-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="resetEmail" name="email" placeholder="Enter your email" required>
+                    <small class="error-message" id="resetEmailError"></small>
+                </div>
+                <button type="submit" class="login-btn">Send Reset Link</button>
+                <div class="login-footer">
+                    <p>Remember your password? <a href="#" id="backToLogin">Back to Login</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Book Pass Modal -->
+    <div class="modal" id="bookPassModal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeBookPass">&times;</span>
+            <div class="modal-header">
+                <h2>Book Your Travel Pass</h2>
+                <p>Complete the form below to get your exclusive travel pass</p>
+            </div>
+            <form id="bookPassForm" class="pass-form">
+                <div class="form-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="fullName" name="fullName" placeholder="Full Name" required>
+                    <small class="error-message" id="nameError"></small>
+                </div>
+                <div class="form-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="passEmail" name="email" placeholder="Email Address" required>
+                    <small class="error-message" id="passEmailError"></small>
+                </div>
+                <div class="form-group">
+                    <i class="fas fa-phone"></i>
+                    <input type="tel" id="mobileNo" name="mobileNo" placeholder="Mobile Number (10 digits)" required>
+                    <small class="error-message" id="mobileError"></small>
+                </div>
+                <div class="form-group">
+                    <i class="fas fa-calendar-alt"></i>
+                    <select id="validity" name="validity" required>
+                        <option value="">Select Validity</option>
+                        <option value="1">1 Week</option>
+                        <option value="2">2 Weeks</option>
+                        <option value="3">3 Weeks</option>
+                    </select>
+                    <small class="error-message" id="validityError"></small>
+                </div>
+                <div class="form-group">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <select id="destination" name="destination" required>
+                        <option value="">Select Destination</option>
+                        <option value="Paris">Paris</option>
+                        <option value="Tokyo">Tokyo</option>
+                        <option value="New York">New York</option>
+                    </select>
+                    <small class="error-message" id="destinationError"></small>
+                </div>
+                <div class="form-group">
+                    <p class="amount-display">Amount: <span id="amountDisplay">₹0</span></p>
+                </div>
+                <button type="submit" class="submit-btn">Generate Pass</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Travel Pass Display -->
+    <div class="modal" id="travelPassModal">
+        <div class="modal-content travel-pass">
+            <span class="close-btn" id="closePass">&times;</span>
+            <div class="pass-header">
+                <h2>Travel World Pass</h2>
+                <p>Your journey begins here</p>
+            </div>
+            <div class="pass-details">
+                <div class="pass-info">
+                    <div class="pass-left">
+                        <p><strong>Name:</strong> <span id="passName"></span></p>
+                        <p><strong>Email:</strong> <span id="passEmailDisplay"></span></p>
+                        <p><strong>Mobile:</strong> <span id="passMobile"></span></p>
+                        <p><strong>Validity:</strong> <span id="passValidity"></span></p>
+                        <p><strong>Destination:</strong> <span id="passDestination"></span></p>
+                        <p><strong>Amount Paid:</strong> <span id="passAmount"></span></p>
+                    </div>
+                    <div class="pass-right">
+                        <img id="passImage" src="" alt="Destination Image">
+                    </div>
+                </div>
+                <div class="pass-footer">
+                    <p>Valid from: <span id="validFrom"></span> to <span id="validTo"></span></p>
+                    <div class="pass-qr">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?data=TravelWorldPassVerified&size=100x100" alt="QR Code">
+                    </div>
+                </div>
+                <button id="printPass" class="print-btn"><i class="fas fa-print"></i> Print Pass</button>
+            </div>
         </div>
     </div>
 
@@ -89,7 +254,7 @@
                 <p>
                     At <strong>Travel World</strong>, we believe that every journey should be unforgettable.
                     Our mission is to provide you with exceptional travel experiences tailored to your dreams.
-                    Whether it's a relaxing beach vacation, a thrilling adventure, or a cultural exploration, we’ve got
+                    Whether it's a relaxing beach vacation, a thrilling adventure, or a cultural exploration, we've got
                     you covered.
                 </p>
                 <h3>Why Choose Us?</h3>
@@ -107,26 +272,111 @@
 
     <section id="contact" class="contact" style="background-image: linear-gradient(to right, #9796f0, #fbc7d4);">
         <h2>Contact Us</h2>
-        <form action="https://formspree.io/f/xpwpaaqa" method="POST" id="contact-form">
+        <form action="https://formspree.io/f/xpwpaaqa" method="POST" id="contact-form" style="display: flex; flex-direction: column;">
             <input type="text" name="name" placeholder="Your Name" required>
             <input type="email" name="email" placeholder="Your Email" required>
             <textarea name="message" placeholder="Your Message" required></textarea>
             <button type="submit">Send Message</button>
         </form>
+        
+        <!-- Success Animation Container -->
+        <div class="success-animation" id="success-animation">
+            <div class="success-checkmark">
+                <div class="check-icon">
+                    <span class="icon-line line-tip"></span>
+                    <span class="icon-line line-long"></span>
+                    <div class="icon-circle"></div>
+                    <div class="icon-fix"></div>
+                </div>
+            </div>
+            <div class="success-message">
+                <h3>Message Sent Successfully!</h3>
+                <p>Thank you for reaching out to us. We'll get back to you soon.</p>
+            </div>
+        </div>
+        
         <p id="success-message" style="display: none; color: green;">Message sent successfully!</p>
     </section>
 
     <footer>
-        <p>&copy; 2025 Travel World. All rights reserved.</p>
-        <p>Made By FURQAN NAIKWADI</p>
-        <div class="social-icons">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>Travel World</h2>
+                <p>Your journey begins with us</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#destinations">Destinations</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Popular Destinations</h3>
+                    <ul>
+                        <li><a href="/paris.html">Paris</a></li>
+                        <li><a href="/tokyo.html">Tokyo</a></li>
+                        <li><a href="/newyork.html">New York</a></li>
+                        <li><a href="#">View All</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 KLS GIT, Udyambag, Belgaum 590008</li>
+                        <li><i class="fas fa-phone"></i> +91 9886601627</li>
+                        <li><i class="fas fa-envelope"></i> info@travelworld.com</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Travel World. All rights reserved.</p>
+            <p>Made By FURQAN NAIKWADI</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
         </div>
     </footer>
+
+    <!-- Welcome Toast Message -->
+    <div class="welcome-toast" id="welcomeToast">
+        <i class="fas fa-check-circle"></i>
+        <div class="welcome-toast-content">
+            <h3>Welcome back, <span id="welcomeUserName">User</span>!</h3>
+            <p>You've successfully signed in.</p>
+        </div>
+        <span class="welcome-toast-close" id="closeWelcomeToast">&times;</span>
+    </div>
+
+    <!-- My Bookings Modal -->
+    <div class="modal" id="myBookingsModal">
+        <div class="modal-content bookings-content">
+            <span class="close-btn" id="closeBookings">&times;</span>
+            <div class="modal-header">
+                <h2>My Bookings</h2>
+                <p>View all your travel passes</p>
+            </div>
+            <div class="bookings-container" id="bookingsContainer">
+                <!-- Bookings will be displayed here dynamically -->
+                <div class="no-bookings" id="noBookings">
+                    <i class="fas fa-ticket-alt empty-icon"></i>
+                    <h3>No Travel Passes Found</h3>
+                    <p>You haven't booked any travel passes yet.</p>
+                    <a href="#" id="bookNowBtn" class="book-now-btn">Book a Pass Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
 
 </html>
+
+
