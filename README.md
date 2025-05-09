@@ -1,6 +1,6 @@
-# Travel World Website
+# Explore World Website
 
-Welcome to the Travel World Website repository! This project is a responsive travel platform designed to help users explore destinations around the globe, book travel passes, and manage their journeys seamlessly.
+Welcome to the Explore World Website repository! This project is a responsive travel platform designed to help users explore destinations around the globe, book travel passes, and manage their journeys seamlessly.
 
 ## Table of Contents
 
@@ -16,7 +16,7 @@ Welcome to the Travel World Website repository! This project is a responsive tra
 
 ## About the Project
 
-The Travel World Website provides users with information about various travel destinations, including New York, Paris, and Tokyo. The platform also features a secure login system and a "Book Pass" option, allowing users to generate and print travel passes.
+The Explore World Website provides users with information about various travel destinations, including New York, Paris, and Tokyo. The platform also features a secure login system and a "Book Pass" option, allowing users to generate and print travel passes.
 
 ## Features
 
